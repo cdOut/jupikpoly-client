@@ -13,6 +13,9 @@
     <script type="module" src="./src/modules/three.module.js"></script>
     
     <!-- PROJECT SOURCES -->
+    <script src="./src/system/Net.js"></script>
+    <script src="./src/system/UI.js"></script>
+    <script src="./src/system/Init.js"></script>
     <script type="module" src="./src/index.js" defer></script>
     
     <title>JUPIKPOLY&trade;</title>
@@ -22,10 +25,10 @@
         <div id="ui-display">
             <div class="ui-container">
                 <h1 class="ui-header">JUPIKPOLY&trade;</h1>
-                <button class="ui-button">Create a lobby</button>
+                <button id="create-lobby-button" class="ui-button">Create a lobby</button>
                 <div>
-                    <input class="ui-input" type="text" placeholder="Lobby ID">
-                    <button class="ui-button">Join a lobby</button>
+                    <input id="join-lobby-id-input" class="ui-input" type="text" placeholder="Lobby ID">
+                    <button id="join-lobby-button" class="ui-button">Join a lobby</button>
                 </div>
             </div>
         </div>
