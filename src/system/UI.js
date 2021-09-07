@@ -1,10 +1,48 @@
 class Ui {
-    constructor(){
-        this.assignEvents()
-    }
+  constructor() {
+    this.lobbyForm();
+  }
 
-    assignEvents(){
-        document.getElementById('create-lobby-button').onclick = net.createLobby //Create a lobby
-        document.getElementById('join-lobby-button').onclick = net.joinLobby //Join a lobby
-    }
+  lobbyForm() {
+    const container = document.querySelector("#ui-container");
+
+    //Jupikpoly header h1
+    let h1 = document.createElement("h1");
+    h1.innerHTML = "JUPIKPOLY&trade;";
+    h1.classList.add("ui-header");
+    container.appendChild(h1);
+    //
+
+    //Create a lobby button
+    let button = document.createElement("button");
+    button.innerHTML = "Create a lobby";
+    button.id = "create-lobby-button";
+    button.classList.add("ui-button");
+    button.onclick = net.createLobby;
+    container.appendChild(button);
+    //
+
+    //div for join a lobby input and button
+    let div = document.createElement("div");
+    container.appendChild(div);
+    //
+
+    //Join lobby input
+    let input = document.createElement("input");
+    input.id = "join-lobby-id-input";
+    input.classList.add("ui-input");
+    input.setAttribute("type", "text");
+    input.setAttribute("placeholder", "Lobby ID");
+    div.appendChild(input);
+    //
+
+    //Join lobby button
+    button = document.createElement("button");
+    button.innerHTML = "Join a lobby";
+    button.id = "join-lobby-button";
+    button.classList.add("ui-button");
+    button.onclick = net.joinLobby;
+    div.appendChild(button);
+    //
+  }
 }
