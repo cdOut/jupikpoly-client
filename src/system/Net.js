@@ -1,6 +1,7 @@
 class Net {
   constructor() {
     this.socket = null;
+    this.handleNickname = null;
     this.connection();
     this.createLobby = this.createLobby.bind(this);
     this.joinLobby = this.joinLobby.bind(this);
@@ -13,11 +14,14 @@ class Net {
   }
 
   createLobby() {
-    this.socket.emit("createLobby");
+    this.socket.emit("createLobby", { nickname: this.handleNickname });
   }
 
   joinLobby() {
     const lobbyId = document.getElementById("join-lobby-id-input").value;
-    this.socket.emit("joinLobby", lobbyId);
+    this.socket.emit("joinLobby", {
+      nickname: this.handleNickname,
+      lobbyId: lobbyId,
+    });
   }
 }
